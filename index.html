@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="requsites/bootstrap.min.css" />
+    <link rel="stylesheet" href="requsites/styling.css" />
+  </head>
+  <body class="container-fluid">
+    <div class="form-container">
+      <ul class="nav">
+        <li
+          class="nav-item active"
+          role="button"
+          aria-current="page"
+          id="signup"
+        >
+          Signup
+        </li>
+        <li class="nav-item" role="button" id="login">Login</li>
+      </ul>
+      <div class="bg-danger-subtle text-danger error-message">
+        <span id="errMsg">error message</span>.
+        <span id="closeErr" role="button">&times;</span>
+      </div>
+      <div id="logo-container">
+        <object
+          data="requsites/image/chatAppLogo.svg"
+          type="image/svg+xml"
+        ></object>
+      </div>
+      
+      <form
+        action=""
+        id="signup-form"
+        class="form active"
+        aria-labelledby="signup"
+      >
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="form-control"
+          placeholder="username"
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control"
+          placeholder="email"
+        />
+        <p>Already have an account? <a href="#" onclick="login()">login</a></p>
+        <input
+          type="submit"
+          value="Signup"
+          class="submit-btn"
+          id="signup-btn"
+        />
+      </form>
+      <form action="" id="login-form" class="form" aria-labelledby="login">
+        <input
+          type="text"
+          name="userId"
+          id="username"
+          class="form-control"
+          placeholder="username or email"
+        />
+        <p>Don't have an account? <a href="#" onclick="signup()">Signup</a></p>
+        <input type="submit" value="login" class="submit-btn" id="login-btn" />
+      </form>
+    </div>
+  </body>
+  <script src="requsites/bootstrap.bundle.min.js"></script>
+  <script src="requsites/chatApp.access.js"></script>
+</html>
