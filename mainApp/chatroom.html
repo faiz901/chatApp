@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>chat app</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../requsites/bootstrap.min.css" />
+    <link rel="stylesheet" href="requsites/mainApp.css" />
+    <title>chat app</title>
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <span class="navbar-brand">
+        <object
+          data="../requsites/image/chatAppLogo.svg"
+          type="image/svg+xml"
+          id="app-logo"
+        ></object>
+      </span>
+      <div class="middle-items gap-lg-5 gap-md-4 gap-sm-3">
+        <button id="Profile" class="nav-item">Profile</button>
+        <button id="Groups" class="nav-item active">Groups</button>
+        <button id="contacts" class="nav-item d-sm-none">contacts</button>
+      </div>
+      <button id="Log out" class="nav-item">Log out</button>
+    </nav>
+    <header id="main">
+      <aside id="sidebar" class="d-sm-inline-block">
+        <div id="contacts-sidebar"></div>
+        co
+      </aside>
+      <section id="chatbox">
+        <form action="" id="new-message-form" class="" name="new-message-form">
+          <div class="input-group" id="input-group">
+            <input
+              class="form-control"
+              type="text"
+              id="new-message"
+              autocomplete="off"
+              placeholder="Send new message"
+            />
+            <input
+              class="btn  bg-gradient bg-opacity-50"
+              type="submit"
+              value="Send"
+              id="submit-new-message"
+            />
+          </div>
+        </form>
+        <div class="" id="message-container">
+        
+        </div>
+      </section>
+    </header>
+  </body>
+  <script src="requsites/access.js" defer></script>
+  <script src="requsites/user.inc.js" defer></script>
+  <script src="../requsites/bootstrap.bundle.min.js"></script>
+  <script src="requsites/functions.js" defer></script>
+  <script src="requsites/eventHandler.js" defer></script>
 </html>

@@ -1,15 +1,18 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
-$uid = htmlentities(strtolower($_POST['userId']));
+session_start();
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
+if(isset($_POST['userId']))
+    $uid = htmlentities(strtolower($_POST['userId']));
 $dsn = 'mysql:host=localhost;dbname=chatroom';
 $dbuser = 'root';
 $password = '';
 
 $response = array();
-$response['access'] = 'null';
+$_SESSION['access'] = 'denied';
+$response['access'] = 'denied';
 
 $pdo = new PDO($dsn, $dbuser, $password);
 
@@ -23,11 +26,14 @@ $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     if ($row['username'] === $uid || $row['email'] === $uid) {
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['userid'] = $row['id'];
+        $_SESSION['access'] = 'granted';
         $response['access'] = 'granted';
-    } else {
-        $response['access'] = 'denied';
-    }
+    } 
 }
 
 header('Content-Type: application/json');
 echo json_encode($response);
+?>

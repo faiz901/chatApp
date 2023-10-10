@@ -7,6 +7,7 @@ let signupBtn = document.getElementById("signup-btn");
 let loginBtn = document.getElementById("login-btn");
 let logo = document.getElementById("logo-container");
 let closeErr = document.getElementById("closeErr");
+let messageAge = document.getElementsByClassName("card-footer");
 
 let errorContainer = document.getElementsByClassName("error-message")[0];
 
@@ -89,7 +90,7 @@ const loginAttempt = (userId) => {
     body: formData,
   })
     .then((response) => {
-      return response.json(); // Extract and parse JSON from the Response object
+      return response.json();
     })
     .then((response) => {
       if (response.access !== "granted") {
@@ -99,6 +100,9 @@ const loginAttempt = (userId) => {
         errorContainer.style.display = "block";
         errorMessage.innerHTML = "User not found!";
       }
+      else {
+        window.location.href = 'mainApp/chatroom.html';
+      }
       console.log(response);
     })
     .catch((error) => {
@@ -107,7 +111,7 @@ const loginAttempt = (userId) => {
 };
 const signupAttempt = (username,email) => {
   var formData = `username=${username}&email=${email}`;
-  fetch("http://localhost/chatApp/backend/signupHandler.php", {
+  fetch("backend/signupHandler.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
